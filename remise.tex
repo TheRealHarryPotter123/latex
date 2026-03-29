@@ -765,5 +765,47 @@ Il est donc possible d'exprimer le résultat pour un nombre $n = c\cdot r + k,\;
 \end{align*}
 ce qui veut dire que: \\ \\
 $\{f_x(0),...,f_x(r)\} = \{f_x(r+1), ..., f_x(2\cdot r)\} = \{f_x(c\cdot r + 1), ..., f_x(c\cdot r)\}$ \\ \\
-Est donc, la fonction se est donc périodique pour tout $c \in \mathbb{N}$
+Et donc, la fonction se est donc périodique pour tout $c \in \mathbb{N}$
+
+\subsection*{(b)}
+\begin{flushleft}
+Montrons que $(x^{r/2} + 1)(x^{r/2} - 1) = 0\; mod\; N \Longrightarrow (x^{r/2} + 1)(x^{r / 2} - 1) = k \cdot N$
+pour un certain $k \in \mathbb{N}, k > 0$.
+\newline
+\newline
+par la définition du modulo, nous savons que:
+\begin{align*} a=b\;mod\;m \Longleftrightarrow a = b + km\; o\grave{u}\; \in \mathbb{Z} \end{align*}
+\newline
+Dans notre cas, $a=(x^{r/2} + 1)(x^{r/2} - 1), b = 0\;, m = N$. Donc on peut dire que:
+\begin{align*}
+    &(x^{r/2} + 1)(x^{r/2} - 1) = 0\; mod\; N\\
+     \Longleftrightarrow \\
+    &(x^{r/2} + 1)(x^{r/2} - 1) = 0 + kN, pour\; k \in \mathbb{Z} \\
+\end{align*}
+L'équation se simplifie ensuite en la transformant en:
+\begin{align*}
+    (x^{r/2} + 1)(x^{r/2} - 1) = x^2 - 1
+\end{align*}
+\newline
+Étant donné que r est strictement positif. Nous avons donc $r > 0\Longrightarrow x^r > x^0$
+\newline
+Il est ensuite possible de faire les manipulations suivantes:
+\begin{align*}
+    x^r - 1 &> x^0 - 1 \\
+    (x^{r/2} + 1)(x^{r/2} - 1) &> x^0 - 1 \\
+    k\cdot N &> x^0 - 1 \\
+    k\cdot N &> 1 - 1 \\
+    k \cdot N &> 0 \\
+\end{align*}
+Nous savons donc que $(x^{r/2} + 1)(x^{r/2} - 1) = kN$ et que $kN$ est strictement positif. Nous savons que $N$
+est strictement positif puisque celui-ci est utilisé comme paramètre à un modulo dans l'événement $X$. Il faut donc
+que $k$ soit strictement positif pour que $kN > 0$ soit respecté. Nous avons donc finalement,
+\begin{align*}
+    (x^{r/2} + 1)(x^{r/2} - 1) = kN,\; o\grave{u}\; k \in \mathbb{N}, k > 0
+\end{align*} \\
+
+\subsection*{(c)}
+
+\end{flushleft}
+
 \end{document}
