@@ -55,6 +55,9 @@ Voici le développement de la fonction $f$ sur $\hat{x} = 0^2$
         \end{aligned}
     \right) \\
 &&     \ket{\psi_2} &= \frac{1}{2\sqrt{2}}(\ket{001} - \ket{000} + \ket{010} - \ket{011} + \ket{100} - \ket{101} + \ket{110} - \ket{111}) \\ \\
+\end{align*}
+
+\begin{align*}
 &t_3:& \ket{\psi_3} &= H_1H_2\ket{\psi_2} \\
 &&     \ket{\psi_3} &= \frac{1}{2\sqrt{2}}\left(
         \begin{aligned}
@@ -64,10 +67,7 @@ Voici le développement de la fonction $f$ sur $\hat{x} = 0^2$
             &H\ket{1}H\ket{1}\ket{0} - H\ket{1}H\ket{1}\ket{1}   \\
         \end{aligned}
     \right) \\
-\end{align*}
-
-\begin{align*}
-&t_5:&  \ket{\psi_3} &= \frac{1}{4\sqrt{2}}\left(
+&&  \ket{\psi_3} &= \frac{1}{4\sqrt{2}}\left(
     \begin{aligned}
         &(\ket{0} + \ket{1})(\ket{0} + \ket{1})\ket{1} - (\ket{0} + \ket{1})(\ket{0} + \ket{1})\ket{0} + \\
         &(\ket{0} + \ket{1})(\ket{0} - \ket{1})\ket{0} - (\ket{0} + \ket{1})(\ket{0} - \ket{1})\ket{1} + \\
@@ -113,12 +113,12 @@ Voici le développement de la fonction $f$ sur $\hat{x} = 0^2$
 &t_5:& \ket{\psi_5} &= \frac{1}{4}(\ket{0} + \ket{1} + \ket{0} - \ket{1})(\ket{0} + \ket{1} + \ket{0} - \ket{1})\ket{-} \\
 &&     \ket{\psi_5} &= \frac{1}{4}(2\cdot\ket{0})(2\cdot\ket{0})\ket{-} \\
 &&     \ket{\psi_5} &= \frac{4}{4}\ket{0}\ket{0}\ket{-} \\
-&&     \ket{\psi_5} &= \ket{00-} \\
+&&     \ket{\psi_5} &= \ket{00}\ket{-} \\
 \end{align*}
 
 \subsection*{2)}
 \begin{flushleft}
-    Étant donné $\ket{\psi_5} = \ket{00-}$, on peut déduire que : \\
+    Étant donné $\ket{\psi_5} = \ket{00}\ket{-}$, on peut déduire que : \\
 \end{flushleft}
 \begin{align*}
     prob(x_0 = 0) = 1^2 \ket{0} = 100\% \\
@@ -191,7 +191,7 @@ Voici les états avec les calculs des différent $\ket{\psi_1}$ pour $xz = 11$
 &t_4:&  \ket{\psi_4} &= Z_{1\rightarrow3}\ket{\psi_3} \\
 &&      \ket{\psi_4} &= \frac{1}{\sqrt{2}}((-1)^{z \wedge x}\ket{zxx0} + (-1)^{z \wedge x}\ket{zx\overline{x}1}) \\ \\
 &t_5:&  \ket{\psi_5} &= CNOT_{3 \rightarrow 4}\ket{\psi_4} \\
-&&      \ket{}
+&&      \ket{\psi_5} &= \frac{1}{\sqrt{2}}((-1)^{z\wedge x}\ket{zxx})
 \end{align*}
 \begin{flushleft}
 \end{flushleft}
