@@ -1,0 +1,66 @@
+\documentclass{article}
+
+\usepackage{braket}
+\usepackage{amsmath}
+
+\begin{document}
+
+Formule 1:
+\begin{align*}
+    \ket{\psi_0} &= \ket{zx} \\ \\ \\
+    \ket{\psi_1} &= H_1\ket{\psi_1} \\
+    \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{0} + (-1)^z\ket{1})\ket{x} \\
+    \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{0x} + (-1)^z\ket{1x}) \\ \\ \\
+    \ket{\psi_2} &= CNOT_{1\rightarrow2}\ket{\psi_1} \\
+    \ket{\psi_2} &= \frac{1}{\sqrt{2}}(CNOT_{1\rightarrow2}\ket{0x} + (-1)^zCNOT_{1\rightarrow2}\ket{1x}) \\
+    \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{0 \quad 0 \oplus x} + (-1)^z \ket{1 \quad 1 \oplus x}) \\
+    \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{0x} + (-1)^z \ket{1\overline{x}}) \\
+\end{align*}
+
+Formule 2:
+\begin{align*}
+    \ket{\psi_0} &= \ket{00} \\ \\ \\
+    \ket{\psi_1} &= H_1\ket{00} \\
+    \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{0} + \ket{1})\ket{0} \\
+    \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{00} + \ket{10}) \\ \\ \\
+    \ket{\psi_2} &= CNOT_{1\rightarrow2}\ket{\psi_1} \\
+    \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{00} + \ket{11}) \\ \\ \\
+    \ket{\psi_2} &= X^x_1\ket{\psi_1} \\
+    \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{x0} + \ket{\overline{x}1}) \\ \\ \\
+    \ket{\psi_3} &= Z^z_1\ket{\psi_2} \\
+    \ket{\psi_3} &= \frac{1}{\sqrt{2}}(-1)^z(\ket{x0} + \ket{\overline{x}1})
+\end{align*}
+
+Évaluons les formules pour $x = 0$ et $z = 0$ \\
+\begin{align*}
+    F_1(0,0)=\frac{1}{\sqrt{2}}(\ket{00} + \ket{11}) \\
+    F_2(0,0)=\frac{1}{\sqrt{2}}(\ket{00} + \ket{11}) \\
+    prob_{F_1}(\ket{00}) = 0.5 \quad prob_{F_2}(\ket{00}) = 0.5 \\
+    prob_{F_2}(\ket{11}) = 0.5 \quad prob_{F_2}(\ket{11}) = 0.5 \\
+\end{align*}
+
+Évaluons les formules pour $x = 0$ et $z = 1$ \\
+\begin{align*}
+    F_1(0,1)=\frac{1}{\sqrt{2}}(\ket{00} - \ket{11}) \\
+    F_2(0,1)=\frac{-1}{\sqrt{2}}(\ket{00} + \ket{11}) \\
+    prob_{F_1}(\ket{00}) = 0.5 \quad prob_{F_2}(\ket{00}) = 0.5 \\
+    prob_{F_2}(\ket{11}) = 0.5 \quad prob_{F_2}(\ket{11}) = 0.5 \\
+\end{align*}
+
+Évaluons les formules pour $x = 1$ et $z = 0$ \\
+\begin{align*}
+    F_1(0,1)=\frac{1}{\sqrt{2}}(\ket{01} + \ket{10}) \\
+    F_2(0,1)=\frac{1}{\sqrt{2}}(\ket{10} + \ket{01}) \\
+    prob_{F_1}(\ket{01}) = 0.5 \quad prob_{F_2}(\ket{01}) = 0.5 \\
+    prob_{F_2}(\ket{10}) = 0.5 \quad prob_{F_2}(\ket{10}) = 0.5 \\
+\end{align*}
+
+Évaluons les formules pour $x = 1$ et $z = 1$ \\
+\begin{align*}
+    F_1(0,1)=\frac{1}{\sqrt{2}}(\ket{01} - \ket{10}) \\
+    F_2(0,1)=\frac{-1}{\sqrt{2}}(\ket{10} + \ket{01}) \\
+    prob_{F_1}(\ket{01}) = 0.5 \quad prob_{F_2}(\ket{01}) = 0.5 \\
+    prob_{F_2}(\ket{10}) = 0.5 \quad prob_{F_2}(\ket{10}) = 0.5 \\
+\end{align*}
+
+\end{document}

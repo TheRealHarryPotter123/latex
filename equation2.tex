@@ -1,0 +1,145 @@
+\documentclass{article}
+
+\usepackage{braket}
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{align*}
+    \ket{\psi_0} &= \ket{xy} \\ \\ \\
+    \ket{\psi_1} &= H_1\ket{x}H_2\ket{y} \\
+    \ket{\psi_1} &= (\frac{1}{\sqrt{2}}\ket{0} + (-1)^x\frac{1}{\sqrt{2}}\ket{1})(\frac{1}{\sqrt{2}}\ket{0} + (-1)^y\frac{1}{\sqrt{2}}\ket{1}) \\
+    \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{00} + (-1)^y\ket{01} + (-1)^x\ket{10} + (-1)^{x+y}\ket{11}) \\ \\ \\
+    \ket{\psi_2} &= CNOT_{2\rightarrow1}\ket{\psi_1} \\
+    \ket{\psi_2} &= \frac{1}{\sqrt{2}}(CNOT_{2\rightarrow1}\ket{00} + (-1)^yCNOT_{2\rightarrow1}\ket{01} + (-1)^xCNOT_{2\rightarrow1}\ket{10} + (-1)^{x+y}CNOT_{2\rightarrow1}\ket{11}) \\
+    \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{00} + (-1)^y\ket{01} + (-1)^x\ket{11} + (-1)^{x+y}\ket{10}) \\ \\ \\
+    \ket{\psi_3} &= H_1H_2\ket{\psi_2} \\
+    \ket{\psi_3} &= \frac{1}{\sqrt{2}}\left(
+        \begin{aligned}
+            &H_1\ket{0}H_2\ket{0} + \\
+            (-1)^y&H_1\ket{0}H_2\ket{1} + \\
+            (-1)^x&H_1\ket{1}H_2\ket{1} + \\
+            (-1)^{x+y}&H_1\ket{1}H_2\ket{0} \\
+        \end{aligned}
+    \right) \\
+    \ket{\psi_3} &= \frac{1}{2}\left(
+        \begin{aligned}
+            &(\ket{0} + \ket{1})(\ket{0} + \ket{1}) + \\
+            (-1)^y&(\ket{0} + \ket{1})(\ket{0} - \ket{1}) + \\
+            (-1)^x&(\ket{0} - \ket{1})(\ket{0} - \ket{1}) + \\
+            (-1)^{x+y}&(\ket{0} - \ket{1})(\ket{0} + \ket{1}) \\
+        \end{aligned}
+    \right) \\
+    \ket{\psi_3} &= \frac{1}{2}\left(
+        \begin{aligned}
+            &(\ket{00} + \ket{01} + \ket{10} + \ket{11}) + \\
+            (-1)^y&(\ket{00} - \ket{01} + \ket{10} - \ket{11}) + \\
+            (-1)^x&(\ket{00} - \ket{01} - \ket{10} + \ket{11}) + \\
+            (-1)^{x+y}&(\ket{00} + \ket{01} - \ket{10} - \ket{11}) \\
+        \end{aligned}
+    \right) \\
+\end{align*}
+
+Si $\ket{\phi_0} = \ket{00}$:
+\begin{align*}
+    \ket{\psi_3} &= \frac{1}{2}\left(
+        \begin{aligned}
+            \ket{00} + \ket{01} + \ket{10} + \ket{11} + \\
+            (-1)^0(\ket{00} - \ket{01} + \ket{10} - \ket{11}) + \\
+            (-1)^0(\ket{00} - \ket{01} - \ket{10} + \ket{11}) + \\
+            (-1)^0(\ket{00} + \ket{01} - \ket{10} - \ket{11}) \\
+        \end{aligned}
+    \right) \\
+    \ket{\psi_3} &= \frac{1}{2}\left(
+        \begin{aligned}
+            &\ket{00} + \ket{01} + \ket{10} + \ket{11} + \\
+            &\ket{00} - \ket{01} + \ket{10} - \ket{11} + \\
+            &\ket{00} - \ket{01} - \ket{10} + \ket{11} + \\
+            &\ket{00} + \ket{01} - \ket{10} - \ket{11} \\
+        \end{aligned}
+    \right) \\
+    \ket{\psi_3} &= \frac{1}{2}(4\cdot\ket{00})
+\end{align*}
+
+Si $\ket{\psi_0} = \ket{01}$:
+\begin{align*}
+    \ket{\psi_3} &= \frac{1}{2}\left(
+        \begin{aligned}
+            \ket{00} + \ket{01} + \ket{10} + \ket{11} + \\
+            (-1)^1(\ket{00} - \ket{01} + \ket{10} - \ket{11}) + \\
+            (-1)^0(\ket{00} - \ket{01} - \ket{10} + \ket{11}) + \\
+            (-1)^1(\ket{00} + \ket{01} - \ket{10} - \ket{11}) \\
+        \end{aligned}
+    \right) \\
+    \ket{\psi_3} &= \frac{1}{2}\left(
+        \begin{aligned}
+            &\ket{00} + \ket{01} + \ket{10} + \ket{11} + \\
+            -&\ket{00} + \ket{01} - \ket{10} + \ket{11} + \\
+            &\ket{00} - \ket{01} - \ket{10} + \ket{11} + \\
+            -&\ket{00} - \ket{01} + \ket{10} + \ket{11} \\
+        \end{aligned}
+    \right) \\
+    \ket{\psi_3} &= \frac{1}{2}(4\cdot\ket{11})
+\end{align*}
+
+Si $\ket{\psi_0} = \ket{10}$:
+\begin{align*}
+    \ket{\psi_3} &= \frac{1}{2}\left(
+        \begin{aligned}
+            \ket{00} + \ket{01} + \ket{10} + \ket{11} + \\
+            (-1)^0(\ket{00} - \ket{01} + \ket{10} - \ket{11}) + \\
+            (-1)^1(\ket{00} - \ket{01} - \ket{10} + \ket{11}) + \\
+            (-1)^1(\ket{00} + \ket{01} - \ket{10} - \ket{11}) \\
+        \end{aligned}
+    \right) \\
+    \ket{\psi_3} &= \frac{1}{2}\left(
+        \begin{aligned}
+            &\ket{00} + \ket{01} + \ket{10} + \ket{11} + \\
+            &\ket{00} - \ket{01} + \ket{10} - \ket{11} + \\
+            -&\ket{00} + \ket{01} + \ket{10} - \ket{11} + \\
+            -&\ket{00} - \ket{01} + \ket{10} + \ket{11} \\
+        \end{aligned}
+    \right) \\
+    \ket{\psi_3} &= \frac{1}{2}(4\cdot\ket{10})
+\end{align*}
+
+Si $\ket{\psi_0} = \ket{11}$:
+\begin{align*}
+    \ket{\psi_3} &= \frac{1}{2}\left(
+        \begin{aligned}
+            \ket{00} + \ket{01} + \ket{10} + \ket{11} + \\
+            (-1)^1(\ket{00} - \ket{01} + \ket{10} - \ket{11}) + \\
+            (-1)^1(\ket{00} - \ket{01} - \ket{10} + \ket{11}) + \\
+            (-1)^0(\ket{00} + \ket{01} - \ket{10} - \ket{11}) \\
+        \end{aligned}
+    \right) \\
+    \ket{\psi_3} &= \frac{1}{2}\left(
+        \begin{aligned}
+            &\ket{00} + \ket{01} + \ket{10} + \ket{11} + \\
+            -&\ket{00} + \ket{01} - \ket{10} + \ket{11} + \\
+            -&\ket{00} + \ket{01} + \ket{10} - \ket{11} + \\
+            &\ket{00} + \ket{01} - \ket{10} - \ket{11} \\
+        \end{aligned}
+    \right) \\
+    \ket{\psi_3} &= \frac{1}{2}(4\cdot\ket{01})
+\end{align*}
+
+le circuit 2 donne donc le résultat suivant :
+\[
+C_2 = 
+    \left\{
+        \begin{aligned}
+            &\ket{00} \mapsto \ket{00}\\
+            &\ket{01} \mapsto \ket{11}\\
+            &\ket{10} \mapsto \ket{10}\\
+            &\ket{11} \mapsto \ket{01}\\
+        \end{aligned}f
+    \right .
+\] \\
+
+En regardant les résultats possible, il est possible de déduire que le circuit fonctionne comme suit:\\
+\[C_2\ket{xy} = \ket{x \oplus y \quad y}\]
+
+Ce qui correspond au deuxième circuit présenté
+
+\end{document}

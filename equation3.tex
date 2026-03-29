@@ -1,0 +1,94 @@
+\documentclass{article}
+
+\usepackage{braket}
+\usepackage{amsmath}
+
+\begin{document}
+Formule 1:
+\begin{align*}
+    \ket{\psi_0} &= \ket{xy} \\ \\ \\
+    \ket{\psi_1} &= H_2\ket{\psi_0} \\
+    \ket{\psi_1} &= \ket{x} H_2 \ket{y} \\
+    \ket{\psi_1} &= \ket{x}\frac{1}{\sqrt{2}}(\ket{0} + (-1)^y \ket{1}) \\
+    \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{x0} + (-1)^y \ket{x1}) \\ \\ \\
+    \ket{\psi_2} &= CNOT_{1\rightarrow2}\ket{\psi_1} \\
+    \ket{\psi_2} &= \frac{1}{\sqrt{2}}(CNOT_{1\rightarrow2}\ket{x0} + (-1)^y CNOT_{1\rightarrow2} \ket{x1}) \\
+    \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{x \quad x\oplus 0} + (-1)^y \ket{x \quad x \oplus 1}) \\
+    \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{x x} + (-1)^y \ket{x \overline{x}}) \\ \\ \\
+    \ket{\psi_3} &= H_2\ket{\psi_2} \\
+    \ket{\psi_3} &= \frac{1}{\sqrt{2}}(\ket{x} H_2\ket{x} + (-1)^y \ket{x} H_2\ket{\overline{x}}) \\
+    \ket{\psi_3} &= \frac{1}{2}(\ket{x}(\ket{0} + (-1)^x\ket{1}) + (-1)^y\ket{x}(\ket{0} + (-1)^{1-x}\ket{1})) \\
+    \ket{\psi_3} &= \frac{1}{2}(\ket{x0} + (-1)^x\ket{x1} + (-1)^y\ket{x0} + (-1)^{1+y-x}\ket{x1}) \\ \\ \\
+\end{align*}
+
+Formule 2:
+\begin{align*}
+    \ket{\psi_0} &= \ket{xy} \\ \\ \\
+    \ket{\psi_1} &= H_1\ket{\psi_0} \\
+    \ket{\psi_1} &= H_1\ket{x} \ket{y} \\
+    \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{0} + (-1)^x\ket{1})\ket{y} \\
+    \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{0y} + (-1)^x\ket{1y}) \\ \\ \\
+    \ket{\psi_2} &= CNOT_{2\rightarrow1}\ket{\psi_1} \\
+    \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{0 \oplus y \quad y} + (-1)^x\ket{1 \oplus y \quad y}) \\
+    \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{y y} + (-1)^x\ket{\overline{y} y}) \\ \\ \\
+    \ket{\psi_3} &= H_1\ket{\psi_2} \\
+    \ket{\psi_3} &= \frac{1}{\sqrt{2}}(H_1\ket{y}\ket{y} + (-1)^x H_1\ket{\overline{y}}\ket{y}) \\
+    \ket{\psi_3} &= \frac{1}{2}((\ket{0} + (-1)^y\ket{1})\ket{y} + (-1)^x(\ket{0} + (-1)^{1-y}\ket{1})\ket{y}) \\
+    \ket{\psi_3} &= \frac{1}{2}(\ket{0y} + (-1)^y\ket{1y} + (-1)^x\ket{0y} + (-1)^{1+x-y}\ket{1y}) \\ \\ \\
+\end{align*}
+
+Formule 3:
+\begin{align*}
+    \ket{\psi_0} &= \ket{xy} \\ \\ \\
+    \ket{\psi_1} &= Z_2\ket{xy} \\
+    \ket{\psi_1} &= \ket{x} (-1)^y\ket{y} \\
+    \ket{\psi_1} &= (-1)^y\ket{xy}
+\end{align*}
+
+Formule 4:
+\begin{align*}
+    \ket{\psi_0} &= \ket{xy} \\ \\ \\
+    \ket{\psi_1} &= Z_1\ket{xy} \\
+    \ket{\psi_1} &= (-1)^x\ket{x}\ket{y} \\
+    \ket{\psi_1} &= (-1)^x\ket{xy} \\
+\end{align*}
+
+Évaluons les 4 fonctions pour $\ket{xy} = \ket{00}$ \\
+
+\begin{align*}
+    F_1\ket{00} &= \frac{1}{2}(\ket{00} + \ket{01} + \ket{00} - \ket{01}) = \ket{00} \\
+    F_2\ket{00} &= \frac{1}{2}(\ket{00} + \ket{10} +\ket{00} - \ket{10}) = \ket{00} \\
+    F_3\ket{00} &= (-1)^0\ket{00} = \ket{00} \\
+    F_4\ket{00} &= (-1)^0\ket{00} = \ket{00} \\
+\end{align*}
+
+Évaluons les 4 fonctions pour $\ket{xy} = \ket{01}$ \\
+
+\begin{align*}
+    F_1\ket{00} &= \frac{1}{2}(\ket{00} + \ket{01} - \ket{00} + \ket{01}) = \ket{01} \\
+    F_2\ket{00} &= \frac{1}{2}(\ket{01} - \ket{11} + \ket{01} + \ket{11}) = \ket{01} \\
+    F_3\ket{00} &= (-1)^1\ket{01} = \ket{01} \\
+    F_4\ket{00} &= (-1)^0\ket{01} = \ket{01} \\
+\end{align*}
+
+Évaluons les 4 fonctions pour $\ket{xy} = \ket{10}$ \\
+
+\begin{align*}
+    F_1\ket{00} &= \frac{1}{2}(\ket{10} - \ket{11} + \ket{10} + \ket{11}) = \ket{10} \\
+    F_2\ket{00} &= \frac{1}{2}(\ket{00} + \ket{10} - \ket{00} + \ket{10}) = \ket{10} \\
+    F_3\ket{00} &= (-1)^0\ket{10} = \ket{10} \\
+    F_4\ket{00} &= (-1)^1\ket{10} = \ket{10} \\
+\end{align*}
+
+Évaluons les 4 fonctions pour $\ket{xy} = \ket{11}$ \\
+
+\begin{align*}
+    F_1\ket{00} &= \frac{1}{2}(\ket{10} - \ket{11} + \ket{10} - \ket{11}) = \ket{11} \\
+    F_2\ket{00} &= \frac{1}{2}(\ket{01} - \ket{11} - \ket{01} - \ket{11}) = \ket{11} \\
+    F_3\ket{00} &= (-1)^1\ket{11} = \ket{11} \\
+    F_4\ket{00} &= (-1)^1\ket{11} = \ket{11} \\
+\end{align*}
+
+On peut voir que dans tous les cas, on produit le même résultat.
+
+\end{document}

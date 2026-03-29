@@ -1,0 +1,47 @@
+\documentclass{article}
+
+\usepackage{braket}
+\usepackage{amsmath}
+
+\begin{document}
+    \begin{align*}
+        \ket{\psi_0} &= \ket{x} \\ \\ \\
+        \ket{\psi_1} &= H_1\ket{\psi_0} \\
+        \ket{\psi_1} &= \frac{1}{\sqrt{2}}\ket{0} + (-1)^x \frac{1}{\sqrt{2}}\ket{1} \\
+        \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{0} + (-1)^x \ket{1}) \\ \\ \\
+        \ket{\psi_2} &= X_1\frac{1}{\sqrt{2}}(\ket{0} + (-1)^x\ket{1}) \\
+        \ket{\psi_2} &= \frac{1}{\sqrt{2}}(X_2\ket{0} + (-1)^xX_2\ket{1}) \\
+        \ket{\psi_2} &= \frac{1}{\sqrt{2}}\ket{1} + (-1)^x\frac{1}{\sqrt{2}}\ket{0} \\ \\ \\
+        \ket{\psi_3} &= H_1\frac{1}{\sqrt{2}}(\ket{1} + (-1)^x\ket{0}) \\
+        \ket{\psi_3} &= \frac{1}{\sqrt{2}}(H_3\ket{1} + (-1)^xH_3\ket{0}) \\
+        \ket{\psi_3} &= \frac{1}{2}(\ket{0} - \ket{1} + (-1)^x (\ket{0} + \ket{1})) \\
+    \end{align*}
+
+Essayons maintenant d'evaluer le résultat si $\ket{x} = \ket{0}$ :\\
+    \begin{align*}
+        \ket{\psi_3} &= \frac{1}{2}(\ket{0} - \ket{1} + (-1)^0 \ket{0} + \ket{1}) \\
+        \ket{\psi_3} &= \frac{1}{2}(\ket{0} - \ket{1} + \ket{0} + \ket{1}) \\
+        \ket{\psi_3} &= \frac{1}{2}(2\cdot\ket{0}) \\
+        \ket{\psi_3} &= \ket{0} \\
+    \end{align*}
+Ensuite, si $\ket{x} = \ket{0}$ : \\
+    \begin{align*}
+        \ket{\psi_3} &= \frac{1}{2}(\ket{0} - \ket{1} + (-1)^1 \ket{0} + \ket{1}) \\
+        \ket{\psi_3} &= \frac{1}{2}(\ket{0} - \ket{1} - \ket{0} - \ket{1}) \\
+        \ket{\psi_3} &= \frac{1}{2}(-2\cdot\ket{0}) \\
+        \ket{\psi_3} &= -\ket{1} \\
+    \end{align*}
+Donc, la porte $HXH$ appliqué à $\ket{x}$ donne :
+\[
+HXH = 
+    \left\{
+        \begin{aligned}
+            &\ket{0} \mapsto \ket{0}\\
+            &\ket{1} \mapsto -\ket{1}
+        \end{aligned}
+    \right .
+\] \\
+
+Ce qui a le même effet que la porte $Z$.
+
+\end{document}
