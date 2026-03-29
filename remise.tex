@@ -2,14 +2,510 @@
 
 \usepackage{braket}
 \usepackage{amsmath}
+\usepackage{amssymb}
 
 \title{Devoir 5}
 \author{Thomas Lesieur et Maxime Sévigny}
 \date{}
-
 \begin{document}
 \maketitle
+\newpage
 \section*{Question 1}
+*chaque circuit pour cette question sont appelé $C_x$ où $x$ est l'ordre dans lequel ils apparaissent de droite à gauche*
+
+\section*{1:}
+Calculons le résultat du circuit $C_1$:
+\begin{align*}
+&t_0:&  \ket{\psi_0} &= \ket{x} \\ \\
+&t_1:&  \ket{\psi_1} &= H_1\ket{\psi_0} \\
+&&      \ket{\psi_1} &= H_1\ket{\psi_0} \\
+&&      \ket{\psi_1} &= H_1\ket{x} \\
+&&      \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{0} + (-1)^x\ket{1}) \\ \\
+&t_2:&  \ket{\psi_2} &= X_1\ket{\psi_1} \\
+&t_2:&  \ket{\psi_2} &= \frac{1}{\sqrt{2}}(X_1\ket{0} + (-1)^xX_1\ket{1}) \\
+&t_2:&  \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{1} + (-1)^x\ket{0}) \\ \\
+&t_3:&  \ket{\psi_3} &= H_1\ket{\psi_2} \\
+&t_3:&  \ket{\psi_3} &= \frac{1}{\sqrt{2}}(H\ket{1} + (-1)^x\ket{0}) \\
+&t_3:&  \ket{\psi_3} &= \frac{1}{\sqrt{2}}(\frac{1}{\sqrt{2}}(\ket{0} - \ket{1}) + (-1)^x\frac{1}{\sqrt{2}}(\ket{0} + \ket{1})) \\
+&t_3:&  \ket{\psi_3} &= \frac{1}{2}(\ket{0} - \ket{1} + (-1)^x(\ket{0} + \ket{1})) \\
+\end{align*}
+\newpage
+Évaluons le circuit $C_1$ pour $\ket{x} = \ket{0}$:
+\begin{align*}
+\ket{\psi_3} &= \frac{1}{2}(\ket{0} - \ket{1} (-1)^0(\ket{0} + \ket{1})) \\
+\ket{\psi_3} &= \frac{1}{2}(\ket{0} - \ket{1} + \ket{0} + \ket{1}) \\
+\ket{\psi_3} &= \frac{1}{2}(2 \cdot \ket{0}) \\
+\ket{\psi_3} &= \ket{0}
+\end{align*}
+Évaluons le circuit $C_1$ pour $\ket{x} = \ket{0}$:
+\begin{align*}
+\ket{\psi_3} &= \frac{1}{2}(\ket{0} - \ket{1} (-1)^1(\ket{0} + \ket{1})) \\
+\ket{\psi_3} &= \frac{1}{2}(\ket{0} - \ket{1} - \ket{0} - \ket{1}) \\
+\ket{\psi_3} &= \frac{1}{2}(-2 \cdot \ket{1}) \\
+\ket{\psi_3} &= -\ket{1}
+\end{align*}
+Le circuit donne donc le même produit que la porte $C_2$, soit la porte $Z$, c'est-à-dire : 
+\[
+C_1 = Z = 
+    \left\{
+        \begin{aligned}
+            &\ket{0} \mapsto \ket{0}\\
+            &\ket{1} \mapsto -\ket{1}
+        \end{aligned}
+    \right .
+\] \\
+
+\subsection*{2:}
+Calculons le résultat du circuit $C_1$:
+\begin{align*}
+&t_0:&  \ket{\psi_0} &= \ket{xy} \\ \\
+&t_1:&  \ket{\psi_1} &= H_1H_2\ket{\psi_0} \\
+&&      \ket{\psi_1} &= H_1\ket{x}H_2\ket{y} \\
+&&      \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{0} + (-1)^x\ket{1})\frac{1}{\sqrt{2}}(\ket{0} + (-1)^y\ket{1}) \\
+&&      \ket{\psi_1} &= \frac{1}{2}(\ket{0} + (-1)^x\ket{1})(\ket{0} + (-1)^y\ket{1}) \\
+&&      \ket{\psi_1} &= \frac{1}{2}(\ket{00} + (-1)^y\ket{01} + (-1)^x\ket{10} + (-1)^{x + y}\ket{11}) \\ \\
+\end{align*}
+\newpage
+\begin{align*}
+&t_2:&  \ket{\psi_2} &= CNOT_{1 \rightarrow 2}\ket{\psi_1} \\
+&&      \ket{\psi_2} &= \frac{1}{2}\left(
+        \begin{aligned}
+            &CNOT_{1 \rightarrow 2}\ket{00} + (-1)^y      &CNOT_{1 \rightarrow 2}\ket{01} \\
+     (-1)^x &CNOT_{1 \rightarrow 2}\ket{10} + (-1)^{x + y}&CNOT_{1 \rightarrow 2}\ket{11} \\
+        \end{aligned}
+    \right) \\
+&&      \ket{\psi_2} &= \frac{1}{2}\left(
+        \begin{aligned}
+            &CNOT_{1 \rightarrow 2}\ket{0 \quad 0 \oplus 0} + (-1)^y      &CNOT_{1 \rightarrow 2}\ket{0 \quad 0 \oplus 1} \\
+     (-1)^x &CNOT_{1 \rightarrow 2}\ket{1 \quad 1 \oplus 0} + (-1)^{x + y}&CNOT_{1 \rightarrow 2}\ket{1 \quad 1 \oplus 1} \\
+        \end{aligned}
+    \right) \\
+&&      \ket{\psi_2} &= \frac{1}{2}(\ket{00} + (-1)^y\ket{01} + (-1)^x\ket{11} + (-1)^{x + y}\ket{10}) \\
+&&      \ket{\psi_2} &= \frac{1}{2}(\ket{00} + (-1)^y\ket{01} + (-1)^{x + y}\ket{10} + (-1)^x\ket{11}) \\ \\
+&t_3:&  \ket{\psi_3} &= H_1H_2\ket{\psi_2} \\
+&&      \ket{\psi_3} &= \frac{1}{2}\left(
+        \begin{aligned}
+                 &(H\ket{0}H\ket{0}) + \\
+          (-1)^y &(H\ket{0}H\ket{1}) + \\
+    (-1)^{x + y} &(H\ket{1}H\ket{0}) + \\
+          (-1)^x &(H\ket{1}H\ket{1}) \\
+        \end{aligned}
+    \right) \\
+&&      \ket{\psi_3} &= \frac{1}{2}\left(
+        \begin{aligned}
+                 &(\frac{1}{\sqrt{2}}(\ket{0} + \ket{1})\frac{1}{\sqrt{2}}(\ket{0} + \ket{1})) + \\
+          (-1)^y &(\frac{1}{\sqrt{2}}(\ket{0} + \ket{1})\frac{1}{\sqrt{2}}(\ket{0} - \ket{1})) + \\
+    (-1)^{x + y} &(\frac{1}{\sqrt{2}}(\ket{0} - \ket{1})\frac{1}{\sqrt{2}}(\ket{0} + \ket{1})) + \\
+          (-1)^x &(\frac{1}{\sqrt{2}}(\ket{0} - \ket{1})\frac{1}{\sqrt{2}}(\ket{0} - \ket{1})) \\
+        \end{aligned}
+    \right) \\
+&&      \ket{\psi_3} &= \frac{1}{4}\left(
+        \begin{aligned}
+                 &((\ket{0} + \ket{1})(\ket{0} + \ket{1})) + \\
+          (-1)^y &((\ket{0} + \ket{1})(\ket{0} - \ket{1})) + \\
+    (-1)^{x + y} &((\ket{0} - \ket{1})(\ket{0} + \ket{1})) + \\
+          (-1)^x &((\ket{0} - \ket{1})(\ket{0} - \ket{1})) \\
+        \end{aligned}
+    \right) \\
+&&      \ket{\psi_3} &= \frac{1}{4}\left(
+        \begin{aligned}
+                 &(\ket{00} + \ket{01} + \ket{10} + \ket{11}) + \\
+          (-1)^y &(\ket{00} - \ket{01} + \ket{10} - \ket{11}) + \\
+    (-1)^{x + y} &(\ket{00} + \ket{01} - \ket{10} - \ket{11}) + \\
+          (-1)^x &(\ket{00} - \ket{01} - \ket{10} + \ket{11}) \\
+        \end{aligned}
+    \right) \\
+\end{align*}
+\newpage
+Évaluons maintenant le circuit $C_1$ pour chaque valeur de $\ket{xy}$: \\ \\
+$\ket{00}:$ \\
+\begin{align*}
+&&      \ket{\psi_3} &= \frac{1}{4}\left(
+        \begin{aligned}
+                 &(\ket{00} + \ket{01} + \ket{10} + \ket{11}) + \\
+          (-1)^0 &(\ket{00} - \ket{01} + \ket{10} - \ket{11}) + \\
+    (-1)^{0 + 0} &(\ket{00} + \ket{01} - \ket{10} - \ket{11}) + \\
+          (-1)^0 &(\ket{00} - \ket{01} - \ket{10} + \ket{11}) \\
+        \end{aligned}
+    \right) \\
+&&      \ket{\psi_3} &= \frac{1}{4}\left(
+        \begin{aligned}
+                 &\ket{00} + \ket{01} + \ket{10} + \ket{11} + \\
+                 &\ket{00} - \ket{01} + \ket{10} - \ket{11} + \\
+                 &\ket{00} + \ket{01} - \ket{10} - \ket{11} + \\
+                 &\ket{00} - \ket{01} - \ket{10} + \ket{11} \\
+        \end{aligned}
+    \right) \\
+&&      \ket{\psi_3} &= \frac{1}{4}(4 \cdot \ket{00}) \\
+&&        \ket{\psi_3} &= \ket{00}
+\end{align*}
+$\ket{01}:$ \\
+\begin{align*}
+&&      \ket{\psi_3} &= \frac{1}{4}\left(
+        \begin{aligned}
+                 &(\ket{00} + \ket{01} + \ket{10} + \ket{11}) + \\
+          (-1)^1 &(\ket{00} - \ket{01} + \ket{10} - \ket{11}) + \\
+    (-1)^{0 + 1} &(\ket{00} + \ket{01} - \ket{10} - \ket{11}) + \\
+          (-1)^0 &(\ket{00} - \ket{01} - \ket{10} + \ket{11}) \\
+        \end{aligned}
+    \right) \\
+&&      \ket{\psi_3} &= \frac{1}{4}\left(
+        \begin{aligned}
+                 &\ket{00} + \ket{01} + \ket{10} + \ket{11} + \\
+                -&\ket{00} + \ket{01} - \ket{10} + \ket{11} + \\
+                -&\ket{00} - \ket{01} + \ket{10} + \ket{11} + \\
+                 &\ket{00} - \ket{01} - \ket{10} + \ket{11} \\
+        \end{aligned}
+    \right) \\
+&&      \ket{\psi_3} &= \frac{1}{4}(4 \cdot \ket{11}) \\
+&&      \ket{\psi_3} &= \ket{11} \\
+\end{align*}
+\newpage
+$\ket{10}:$ \\
+\begin{align*}
+&&      \ket{\psi_3} &= \frac{1}{4}\left(
+        \begin{aligned}
+                 &(\ket{00} + \ket{01} + \ket{10} + \ket{11}) + \\
+          (-1)^0 &(\ket{00} - \ket{01} + \ket{10} - \ket{11}) + \\
+    (-1)^{1 + 0} &(\ket{00} + \ket{01} - \ket{10} - \ket{11}) + \\
+          (-1)^1 &(\ket{00} - \ket{01} - \ket{10} + \ket{11}) \\
+        \end{aligned}
+    \right) \\
+&&      \ket{\psi_3} &= \frac{1}{4}\left(
+        \begin{aligned}
+                 &\ket{00} + \ket{01} + \ket{10} + \ket{11} + \\
+                 &\ket{00} - \ket{01} + \ket{10} - \ket{11} + \\
+                -&\ket{00} - \ket{01} + \ket{10} + \ket{11} + \\
+                -&\ket{00} + \ket{01} + \ket{10} - \ket{11} \\
+        \end{aligned}
+    \right) \\
+&&      \ket{\psi_3} &= \frac{1}{4}(4 \cdot \ket{10}) \\
+&&        \ket{\psi_3} &= \ket{10}
+\end{align*}
+$\ket{11}:$ \\
+\begin{align*}
+&&      \ket{\psi_3} &= \frac{1}{4}\left(
+        \begin{aligned}
+                 &(\ket{00} + \ket{01} + \ket{10} + \ket{11}) + \\
+          (-1)^1 &(\ket{00} - \ket{01} + \ket{10} - \ket{11}) + \\
+    (-1)^{1 + 1} &(\ket{00} + \ket{01} - \ket{10} - \ket{11}) + \\
+          (-1)^1 &(\ket{00} - \ket{01} - \ket{10} + \ket{11}) \\
+        \end{aligned}
+    \right) \\
+&&      \ket{\psi_3} &= \frac{1}{4}\left(
+        \begin{aligned}
+                 &\ket{00} + \ket{01} + \ket{10} + \ket{11} + \\
+                -&\ket{00} + \ket{01} - \ket{10} + \ket{11} + \\
+                 &\ket{00} + \ket{01} - \ket{10} - \ket{11} + \\
+                -&\ket{00} + \ket{01} + \ket{10} - \ket{11} \\
+        \end{aligned}
+    \right) \\
+&&      \ket{\psi_3} &= \frac{1}{4}(4 \cdot \ket{01}) \\
+&&      \ket{\psi_3} &= \ket{01} \\
+\end{align*}
+Le circuit $C_2$ correspond à l'équation suivante : \\
+\begin{align*} CNOT_{2 \rightarrow 1}\ket{xy} = \ket{x \oplus y \quad y} \end{align*}
+\newpage
+Évaluons $C_2$ pour chaque $\ket{xy}$ possible:
+\begin{align*}
+CNOT_{2 \rightarrow 1}\ket{00} &= \ket{0 \oplus 0 \quad 0} = \ket{00} \\
+CNOT_{2 \rightarrow 1}\ket{01} &= \ket{0 \oplus 1 \quad 1} = \ket{11} \\ 
+CNOT_{2 \rightarrow 1}\ket{10} &= \ket{1 \oplus 0 \quad 0} = \ket{10} \\ 
+CNOT_{2 \rightarrow 1}\ket{11} &= \ket{1 \oplus 1 \quad 1} = \ket{01} \\
+\end{align*}
+Les valeurs obtenus pour les circuits $C_1$ et $C_2$ sont donc identiques pour tout $x \in \{0,1\}, y \in \{0, 1\}$: \\
+\begin{align*}
+C_1\ket{00} &= C_2 \ket{00} &= \ket{00} \\
+C_1\ket{01} &= C_2 \ket{01} &= \ket{11} \\
+C_1\ket{10} &= C_2 \ket{10} &= \ket{10} \\ 
+C_1\ket{11} &= C_2 \ket{11} &= \ket{01} \\
+\end{align*}
+
+\subsection*{3:}
+Calculons le résultat du circuit $C_1$:
+\begin{align*}
+&t_0:&  \ket{\psi_0} &= \ket{xy} \\ \\
+&t_1:&  \ket{\psi_1} &= H_2\ket{\psi_0} \\
+&&      \ket{\psi_1} &= \ket{x}H\ket{y} \\
+&&      \ket{\psi_1} &= \ket{x}\frac{1}{\sqrt{2}}(\ket{0} + (-1)^y \ket{1}) \\
+&&      \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{x0} + (-1)^y \ket{x1}) \\ \\
+&t_2:&  \ket{\psi_2} &= CNOT_{1 \rightarrow 2}\ket{\psi_1} \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(CNOT_{1 \rightarrow 2}\ket{x0} + (-1)^yCNOT_{1 \rightarrow 2}\ket{x1}) \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{x \quad x \oplus 0} + (-1)^y\ket{x \quad x \oplus 1}) \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{xx} + (-1)^y\ket{x \overline{x}}) \\ \\
+\end{align*}
+\begin{align*}
+&t_3:&  \ket{\psi_3} &= H_2\ket{\psi_2} \\
+&&      \ket{\psi_3} &= \frac{1}{\sqrt{2}}(\ket{x}H\ket{x} + (-1)^y \ket{x}H\ket{\overline{x}}) \\
+&&      \ket{\psi_3} &= \frac{1}{\sqrt{2}}\left(
+        \begin{aligned}
+                &\ket{x}\frac{1}{\sqrt{2}}(\ket{0} + (-1)^x \ket{1}) + \\
+        (-1)^y  &\ket{x}\frac{1}{\sqrt{2}}(\ket{0} + (-1)^{\overline{x}} \ket{1}) \\
+        \end{aligned}
+    \right) \\
+&&      \ket{\psi_3} &= \frac{1}{2}\left(
+        \begin{aligned}
+                &\ket{x}(\ket{0} + (-1)^x \ket{1}) + \\
+        (-1)^y  &\ket{x}(\ket{0} + (-1)^{\overline{x}} \ket{1}) \\
+        \end{aligned}
+    \right) \\
+&&      \ket{\psi_3} &= \frac{1}{2}(\ket{x0} + (-1)^x\ket{x1} + (-1)^y\ket{x0} + (-1)^y(-1)^{\overline{x}} \ket{x1}) \\
+\end{align*}
+Calculons le résultat du circuit $C_2$:
+\begin{align*}
+&t_0:&  \ket{\psi_0} &= \ket{xy} \\ \\
+&t_1:&  \ket{\psi_1} &= H_2\ket{\psi_0} \\
+&&      \ket{\psi_1} &= H\ket{x}\ket{y} \\
+&&      \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{0} + (-1)^x\ket{1})\ket{y} \\
+&&      \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{0y} + (-1)^x \ket{1y}) \\ \\
+&t_2:&  \ket{\psi_2} &= CNOT_{2 \rightarrow 1}\ket{\psi_1} \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(CNOT_{2 \rightarrow 1}\ket{0y} + (-1)^xCNOT_{2 \rightarrow 1}\ket{1y}) \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{0 \oplus y \quad y} + (-1)^x\ket{1 \oplus y \quad y}) \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{yy} + (-1)^x\ket{\overline{y}y}) \\ \\
+\end{align*}
+\begin{align*}
+&t_3:&  \ket{\psi_3} &= H_1\ket{\psi_2} \\
+&&      \ket{\psi_3} &= \frac{1}{\sqrt{2}}(H\ket{y}\ket{y} + (-1)^xH\ket{\overline{y}}\ket{y}) \\
+&&      \ket{\psi_3} &= \frac{1}{\sqrt{2}}\left(
+        \begin{aligned}
+                &\frac{1}{\sqrt{2}}(\ket{0} + (-1)^y\ket{1})\ket{y} + \\
+        (-1)^x  &\frac{1}{\sqrt{2}}(\ket{0} + (-1)^{\overline{y}}\ket{1})\ket{y} \\
+        \end{aligned}
+    \right) \\
+&&      \ket{\psi_3} &= \frac{1}{2}\left(
+        \begin{aligned}
+                &(\ket{0} + (-1)^y\ket{1})\ket{y} + \\
+        (-1)^x  &(\ket{0} + (-1)^{\overline{y}}\ket{1})\ket{y} \\
+        \end{aligned}
+    \right) \\
+&&      \ket{\psi_3} &= \frac{1}{2}(\ket{0y} + (-1)^y\ket{1y} + (-1)^x\ket{0y} + (-1)^x(-1)^{\overline{y}}\ket{1y}) \\
+\end{align*}
+L'évaluation des circuits $C_3$ et $C_4$ est la suivante:
+\[
+X_{1 \rightarrow 2} = X_{2 \rightarrow 1} = 
+    \left\{
+        \begin{aligned}
+            &\ket{00} \mapsto&  \ket{00} \\
+            &\ket{01} \mapsto&  \ket{01} \\
+            &\ket{10} \mapsto&  \ket{10} \\
+            &\ket{11} \mapsto& -\ket{11} \\
+        \end{aligned}
+    \right .
+\] \\
+Évaluons maintenant le circuit $C_1$ pour chaque valeur de $\ket{xy}$: \\ \\
+$\ket{00}:$ \\
+\begin{align*}
+&&      \ket{\psi_3} &= \frac{1}{2}(\ket{00} + (-1)^0\ket{01} + (-1)^0\ket{00} + (-1)^0(-1)^1 \ket{01}) \\
+&&      \ket{\psi_3} &= \frac{1}{2}(\ket{00} + \ket{01} + \ket{00} - \ket{01}) \\
+&&      \ket{\psi_3} &= \frac{1}{2}(2 \cdot \ket{00}) \\
+&&      \ket{\psi_3} &= \ket{00} \\
+\end{align*}
+$\ket{01}:$ \\
+\begin{align*}
+&&      \ket{\psi_3} &= \frac{1}{2}(\ket{00} + (-1)^0\ket{01} + (-1)^1\ket{00} + (-1)^1(-1)^1 \ket{01}) \\
+&&      \ket{\psi_3} &= \frac{1}{2}(\ket{00} + \ket{01} - \ket{00} + \ket{01}) \\
+&&      \ket{\psi_3} &= \frac{1}{2}(2 \cdot \ket{01}) \\
+&&      \ket{\psi_3} &= \ket{01} \\
+\end{align*}
+$\ket{10}:$ \\
+\begin{align*}
+&&      \ket{\psi_3} &= \frac{1}{2}(\ket{10} + (-1)^1\ket{11} + (-1)^0\ket{10} + (-1)^0(-1)^0 \ket{11}) \\
+&&      \ket{\psi_3} &= \frac{1}{2}(\ket{10} - \ket{11} + \ket{10} + \ket{11}) \\
+&&      \ket{\psi_3} &= \frac{1}{2}(2 \cdot \ket{10}) \\
+&&      \ket{\psi_3} &= \ket{10} \\
+\end{align*}
+$\ket{11}:$ \\
+\begin{align*}
+&&      \ket{\psi_3} &= \frac{1}{2}(\ket{10} + (-1)^1\ket{11} + (-1)^1\ket{10} + (-1)^1(-1)^{0} \ket{11}) \\
+&&      \ket{\psi_3} &= \frac{1}{2}(\ket{10} - \ket{11} - \ket{00} - \ket{11}) \\
+&&      \ket{\psi_3} &= \frac{1}{2}(-2 \cdot \ket{11}) \\
+&&      \ket{\psi_3} &= -\ket{11} \\
+\end{align*}
+Évaluons ensuite le circuit $C_2$ pour chaque valeur de $\ket{xy}$: \\ \\
+$\ket{00}:$ \\
+\begin{align*}
+&&      \ket{\psi_3} &= \frac{1}{2}(\ket{00} + (-1)^0\ket{10} + (-1)^0\ket{00} + (-1)^0(-1)^1\ket{10}) \\
+&&      \ket{\psi_3} &= \frac{1}{2}(\ket{00} + \ket{10} + \ket{00} - \ket{10}) \\
+&&      \ket{\psi_3} &= \frac{1}{2}(2 \cdot \ket{00}) \\
+&&      \ket{\psi_3} &= \ket{00} \\
+\end{align*}
+$\ket{01}:$ \\
+\begin{align*}
+&&      \ket{\psi_3} &= \frac{1}{2}(\ket{01} + (-1)^1\ket{11} + (-1)^0\ket{01} + (-1)^0(-1)^0\ket{11}) \\
+&&      \ket{\psi_3} &= \frac{1}{2}(\ket{01} - \ket{11} + \ket{01} + \ket{11}) \\
+&&      \ket{\psi_3} &= \frac{1}{2}(2 \cdot \ket{01}) \\
+&&      \ket{\psi_3} &= \ket{01} \\
+\end{align*}
+$\ket{10}:$ \\
+\begin{align*}
+&&      \ket{\psi_3} &= \frac{1}{2}(\ket{00} + (-1)^0\ket{10} + (-1)^1\ket{00} + (-1)^1(-1)^1\ket{10}) \\
+&&      \ket{\psi_3} &= \frac{1}{2}(\ket{10} - \ket{11} + \ket{10} + \ket{11}) \\
+&&      \ket{\psi_3} &= \frac{1}{2}(2 \cdot \ket{10}) \\
+&&      \ket{\psi_3} &= \ket{10} \\
+\end{align*}
+$\ket{11}:$ \\
+\begin{align*}
+&&      \ket{\psi_3} &= \frac{1}{2}(\ket{01} + (-1)^1\ket{11} + (-1)^1\ket{01} + (-1)^1(-1)^0\ket{11}) \\
+&&      \ket{\psi_3} &= \frac{1}{2}(\ket{01} - \ket{11} - \ket{01} - \ket{11}) \\
+&&      \ket{\psi_3} &= \frac{1}{2}(-2 \cdot \ket{11}) \\
+&&      \ket{\psi_3} &= -\ket{11} \\
+\end{align*}
+On Remarque donc que les circuits donnent les mêmes résultat pour tous les $\ket{xy}$ possibles:
+\[
+C_1\ket{xy} = C_2\ket{xy} = C_3\ket{xy} = C_4\ket{xy} =
+    \left\{
+        \begin{aligned}
+           -&\ket{xy} si\; x = 1, y = 1 \\
+            &\ket{xy} sinon \\
+        \end{aligned}
+    \right .
+\] \\
+
+\newpage
+\subsection*{4:}
+Calculons le résultat du circuit $C_1$:
+\begin{align*}
+&t_0:&  \ket{\psi_0} &= \ket{zx} \\ \\
+&t_1:&  \ket{\psi_1} &= H_1\ket{\psi_0} \\
+&&      \ket{\psi_1} &=  H\ket{z}\ket{x} \\
+&&      \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{0} + (-1)^z\ket{1})\ket{x} \\
+&&      \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{0x} + (-1)^z\ket{1x}) \\ \\
+&t_2:&  \ket{\psi_2} &= CNOT_{1 \rightarrow 2}\ket{\psi_1} \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(CNOT_{1 \rightarrow 2}\ket{0x} + (-1)^zCNOT_{1 \rightarrow 2}\ket{1x}) \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{0 \quad 0 \oplus x} + (-1)^z\ket{1 \quad 1 \oplus x}) \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{0x} + (-1)^z\ket{1\overline{x}}) \\
+\end{align*}
+Évaluons maintenant le circuit $C_1$ pour chaque valeur de $\ket{zx}$: \\ \\
+$\ket{00}:$ \\
+\begin{align*}
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{00} + (-1)^0\ket{11}) \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{00} + \ket{11})\\
+\end{align*}
+$\ket{01}:$ \\
+\begin{align*}
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{01} + (-1)^0\ket{10}) \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{01} + \ket{10})\\
+\end{align*}
+$\ket{10}:$ \\
+\begin{align*}
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{00} + (-1)^1\ket{11}) \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{00} - \ket{11})\\
+\end{align*}
+$\ket{11}:$ \\
+\begin{align*}
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{01} + (-1)^0\ket{10}) \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{01} - \ket{10})\\
+\end{align*}
+Calculons le résultat du circuit $C_2$:
+\begin{align*}
+&t_0:&  \ket{\psi_0} &= \ket{00} \\ \\
+&t_1:&  \ket{\psi_1} &= H_1\ket{\psi_0} \\
+&&      \ket{\psi_1} &= H\ket{0}\ket{0} \\
+&&      \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{0} + \ket{1})\ket{0} \\
+&&      \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{00} + \ket{10}) \\ \\
+&t_2:&  \ket{\psi_2} &= CNOT_{1 \rightarrow 2}\ket{\psi_1} \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(CNOT_{1 \rightarrow 2}\ket{00} + CNOT_{1 \rightarrow 2}\ket{10}) \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{0 \quad 0 \oplus 0} + \ket{1 \quad 1 \oplus 0}) \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{00} + \ket{11}) \\ \\
+\end{align*}
+\begin{align*}
+&t_3:&  \ket{\psi_3} &= X^x\ket{\psi_2} \\
+&&      \ket{\psi_3} &= \frac{1}{\sqrt{2}}(X^x\ket{0}\ket{0} + X^x\ket{1}\ket{1}) \\
+&&      \ket{\psi_3} &= \frac{1}{\sqrt{2}}(\ket{x \oplus 0 \quad 0} + \ket{x \oplus 1 \quad 1}) \\
+&&      \ket{\psi_3} &= \frac{1}{\sqrt{2}}(\ket{x0} + \ket{\overline{x}1}) \\ \\
+&t_4:&  \ket{\psi_4} &=  Z^z\ket{\psi_3} \\
+&&      \ket{\psi_4} &= \frac{1}{\sqrt{2}}(Z^z\ket{x}\ket{0} + Z^z\ket{\overline{x}1}) \\
+&&      \ket{\psi_4} &= \frac{1}{\sqrt{2}}((-1)^{z \wedge x}\ket{x}\ket{0} + (-1)^{z \wedge \overline{x}}\ket{\overline{x}}\ket{1}) \\
+&&      \ket{\psi_4} &= \frac{1}{\sqrt{2}}((-1)^{z \wedge x}\ket{x0} + (-1)^{z \wedge \overline{x}}\ket{\overline{x}1}) \\
+\end{align*}
+Évaluons maintenant le circuit $C_2$ pour chaque valeur de $\ket{zx}$: \\ \\
+$\ket{00}:$ \\
+\begin{align*}
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}((-1)^{0 \wedge 0}\ket{00} + (-1)^{0 \wedge 1}\ket{11}) \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{00} + \ket{11})\\
+\end{align*}
+$\ket{01}:$ \\
+\begin{align*}
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}((-1)^{0 \wedge 1}\ket{10} + (-1)^{0 \wedge 0}\ket{01}) \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{01} + \ket{10})\\
+\end{align*}
+$\ket{10}:$ \\
+\begin{align*}
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}((-1)^{1 \wedge 0}\ket{00} + (-1)^{1 \wedge 1}\ket{11}) \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{00} - \ket{11})\\
+\end{align*}
+$\ket{11}:$ \\
+\begin{align*}
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}((-1)^{1 \wedge 1}\ket{10} + (-1)^{1 \wedge 0}\ket{01}) \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{01} - \ket{10})\\
+\end{align*}
+Il est donc possible de déterminer que $C_1$ et $C_2$ sont des circuits identiques qui génèrent: \\
+\[
+C_1\ket{zx} = C_2\ket{zx} =
+    \left\{
+        \begin{aligned}
+           \ket{00} \mapsto&\quad \frac{1}{\sqrt{2}}(\ket{00} + \ket{11}) \\
+           \ket{01} \mapsto&\quad \frac{1}{\sqrt{2}}(\ket{01} + \ket{10}) \\
+           \ket{10} \mapsto&\quad \frac{1}{\sqrt{2}}(\ket{00} - \ket{11}) \\
+           \ket{11} \mapsto&\quad \frac{1}{\sqrt{2}}(\ket{01} - \ket{10}) \\
+        \end{aligned}
+    \right .
+\] \\
+
+\subsection*{5:}
+Calculons le résultat du circuit $C_1$:
+\begin{align*}
+&t_0:&  \ket{\psi_0} &= \ket{xy} \\ \\
+&t_1:&  \ket{\psi_1} &= H_1\ket{\psi_0} \\
+&&      \ket{\psi_1} &= H\ket{x}\ket{y} \\
+&&      \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{0} + (-1)^x\ket{1})\ket{y} \\
+&&      \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{0y} + (-1)^x\ket{1y}) \\ \\
+&t_2:&  \ket{\psi_2} &= CNOT_{1 \rightarrow 2}\ket{\psi_1} \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(CNOT_{1 \rightarrow 2}\ket{0y} + (-1)^xCNOT_{1 \rightarrow 2}\ket{1y}) \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{0 \quad 0 \oplus y} + (-1)^x\ket{1 \quad 1 \oplus y}) \\
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{0y} + (-1)^x\ket{1\overline{y}}) \\
+\end{align*}
+\begin{align*}
+&t_3:&  \ket{\psi_3} &= CNOT_{1 \rightarrow 2}\ket{\psi_2} \\
+&&      \ket{\psi_3} &= \frac{1}{\sqrt{2}}(CNOT_{1 \rightarrow 2}\ket{0y} + (-1)^xCNOT_{1 \rightarrow 2}\ket{1\overline{y}}) \\
+&&      \ket{\psi_3} &= \frac{1}{\sqrt{2}}(\ket{0 \quad 0 \oplus y} + (-1)^x\ket{1 \quad 1 \oplus \overline{y}}) \\
+&&      \ket{\psi_3} &= \frac{1}{\sqrt{2}}(\ket{0y} + (-1)^x\ket{1y}) \\ \\
+&t_4:&  \ket{\psi_4} &= H_1\ket{\psi_3} \\
+&&      \ket{\psi_4} &= \frac{1}{\sqrt{2}}(H\ket{0}\ket{y} + (-1)^xH\ket{1}\ket{y}) \\
+&&      \ket{\psi_4} &= \frac{1}{\sqrt{2}}(\frac{1}{\sqrt{2}}(\ket{0} + \ket{1})\ket{y} + (-1)^x\frac{1}{\sqrt{2}}(\ket{0} - \ket{1})\ket{y}) \\
+&&      \ket{\psi_4} &= \frac{1}{2}((\ket{0} + \ket{1})\ket{y} + (-1)^x(\ket{0} - \ket{1})\ket{y}) \\
+&&      \ket{\psi_4} &= \frac{1}{2}(\ket{0y} + \ket{1y} + (-1)^x(\ket{0y} - \ket{1y})) \\
+\end{align*}
+Évaluons maintenant le circuit $C_1$ pour chaque valeur de $\ket{xy}$: \\ \\
+$\ket{00}:$ \\
+\begin{align*}
+&&      \ket{\psi_4} &= \frac{1}{2}(\ket{00} + \ket{10} + \ket{00} - \ket{10}) \\
+&&      \ket{\psi_4} &= \frac{1}{2}(2 \cdot \ket{00}) \\
+&&      \ket{\psi_4} &= \ket{00} \\
+\end{align*}
+$\ket{01}:$ \\
+\begin{align*}
+&&      \ket{\psi_4} &= \frac{1}{2}(\ket{01} + \ket{11} + \ket{01} - \ket{11}) \\
+&&      \ket{\psi_4} &= \frac{1}{2}(2 \cdot \ket{01}) \\
+&&      \ket{\psi_4} &= \ket{01} \\
+\end{align*}
+$\ket{10}:$ \\
+\begin{align*}
+&&      \ket{\psi_4} &= \frac{1}{2}(\ket{00} + \ket{10} - \ket{00} + \ket{10}) \\
+&&      \ket{\psi_4} &= \frac{1}{2}(2 \cdot \ket{10}) \\
+&&      \ket{\psi_4} &= \ket{10} \\
+\end{align*}
+$\ket{11}:$ \\
+\begin{align*}
+&&      \ket{\psi_4} &= \frac{1}{2}(\ket{01} + \ket{11} - \ket{01} + \ket{11}) \\
+&&      \ket{\psi_4} &= \frac{1}{2}(2 \cdot \ket{11}) \\
+&&      \ket{\psi_4} &= \ket{11} \\
+\end{align*}
+Il est donc possible de déterminer que $C_1$ et $C_2$ sont des circuits identiques qui génèrent: \\
+\[
+C_1\ket{xy} = C_2\ket{xy} = \ket{xy} \mapsto \ket{xy}
+\]
+
 \section*{Question 2}
 \subsection*{(a)}
 
@@ -236,4 +732,38 @@ Voici les états avec les calculs des différent $\ket{\psi_1}$ pour $xz = 11$
     CNOT et H nous permet donc de "retrouver" ces informations à partir du qubit envoyé par Alice.
     sur $\hat{z}\hat{x}$
 \end{flushleft}
+
+\section*{Question 4:}
+\subsection*{(a)}
+La fonction $f_x$ que l'on pourrait donner en entrée au problème \textbf{PF} pour que ça sortie $r$
+soit la période $r$ de la suite \{$x^0 = 1\; mod\; N, x^1, x^2, ...\;,$ \\ $x^r = 1\; mod\; N, x^{r+1} = x^1\; mod\; N, ...$\} est
+la suivante: \\
+\begin{align*} f_x(a) = x^a\; mod\; N \end{align*} \\
+Il s'agit de cette fonction, parce qu'il est possible de construire la suite de la manière suivante:
+\begin{align*} \{
+    f_x(0), f_x(1), f_x(2), ...
+    \}
+\end{align*} \\
+Ce qui veut dire que la période $r$ que \textbf{PF} trouverait pour la fonction $f_x$ serait la même que
+la période $r$ que la suite, puisque $f_x$ génère la suite et que \textbf{PF} sert à trouver la période d'une
+suite générée par une fonction. On peut appliquer la fonction $f_x$ à \textbf{PF}, parce que celle-ci est périodique
+et injective. Celle-ci est injective, parce que l'opération de puissance et celle de modulo sont des opérations de ce style :
+\begin{align*} \mathbb{N} \mapsto \mathbb{N} \end{align*} \\
+ce qui veut dire que $f_x:\mathbb{N}\mapsto \mathbb{N}$ \\ \\
+Aussi, il est possible de dire que la fonction est périodique, puisque, étant donné que notre fonction donne:
+\begin{align*} f_x(r) : x^r = 1\; mod\; N \end{align*}
+\newpage
+\begin{flushleft}
+Il est donc possible d'exprimer le résultat pour un nombre $n = c\cdot r + k,\; o\grave{u}\; x >= 1, k \in \{1, ..., N- 1\}$
+\end{flushleft}
+\begin{align*}
+    f_x(n) &= x^n mod N \\
+    f_x(n) &= x^{c \cdot r + k} \\
+    f_x(n) &= (x^r)^k\cdot x^k \\
+    f_x(n) &= 1^k \cdot x^k \\
+    f_x(n) &= x^k \\
+\end{align*}
+ce qui veut dire que: \\ \\
+$\{f_x(0),...,f_x(r)\} = \{f_x(r+1), ..., f_x(2\cdot r)\} = \{f_x(c\cdot r + 1), ..., f_x(c\cdot r)\}$ \\ \\
+Est donc, la fonction se est donc périodique pour tout $c \in \mathbb{N}$
 \end{document}
