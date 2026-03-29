@@ -11,7 +11,7 @@
 \maketitle
 \section*{Question 1}
 \section*{Question 2}
-\subsection*{1)}
+\subsection*{(a)}
 
 Voici le développement de la fonction $f$ sur $\hat{x} = 0^2$
 \begin{align*}
@@ -19,8 +19,9 @@ Voici le développement de la fonction $f$ sur $\hat{x} = 0^2$
 &t_1:& \ket{\psi_1} &= H_1H_2\ket{\psi_0} \\
 &&     \ket{\psi_1} &= H_1\ket{0}H_2\ket{0}\ket{-} \\
 &&     \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{0} + \ket{1})\frac{1}{\sqrt{2}}(\ket{0} + \ket{1})\ket{-} \\
-&&     \ket{\psi_1} &= \frac{1}{2\sqrt{2}}(\ket{0} + \ket{1})(\ket{0} + \ket{1})(\ket{0} - \ket{1}) = \frac{1}{2\sqrt{2}}(\ket{00} + \ket{01} + \ket{10} + \ket{11})(\ket{0} - \ket{1}) \\
-                  &&&= \frac{1}{2\sqrt{2}}(\ket{000} - \ket{001} + \ket{010} - \ket{011} + \ket{100} - \ket{101} + \ket{110} - \ket{111}) \\ \\
+&&     \ket{\psi_1} &= \frac{1}{2\sqrt{2}}(\ket{0} + \ket{1})(\ket{0} + \ket{1})(\ket{0} - \ket{1}) \\
+&&     \ket{\psi_1} &=\frac{1}{2\sqrt{2}}(\ket{00} + \ket{01} + \ket{10} + \ket{11})(\ket{0} - \ket{1}) \\
+&&     \ket{\psi_1}&= \frac{1}{2\sqrt{2}}(\ket{000} - \ket{001} + \ket{010} - \ket{011} + \ket{100} - \ket{101} + \ket{110} - \ket{111}) \\ \\
 &t_2:& \ket{\psi_2} &= f_{12 \rightarrow 3}\ket{\psi_1} \\
 &&     \ket{\psi_2} &= \frac{1}{2\sqrt{2}}\left(
         \begin{aligned}
@@ -46,6 +47,9 @@ Voici le développement de la fonction $f$ sur $\hat{x} = 0^2$
             &\ket{11}\ket{0 \oplus 0} - \ket{11}\ket{0 \oplus 1}   \\
         \end{aligned}
     \right) \\
+\end{align*}
+
+\begin{align*}
 &&     \ket{\psi_2} &= \frac{1}{2\sqrt{2}}\left(
         \begin{aligned}
             &\ket{001} - \ket{000} + \\
@@ -55,9 +59,6 @@ Voici le développement de la fonction $f$ sur $\hat{x} = 0^2$
         \end{aligned}
     \right) \\
 &&     \ket{\psi_2} &= \frac{1}{2\sqrt{2}}(\ket{001} - \ket{000} + \ket{010} - \ket{011} + \ket{100} - \ket{101} + \ket{110} - \ket{111}) \\ \\
-\end{align*}
-
-\begin{align*}
 &t_3:& \ket{\psi_3} &= H_1H_2\ket{\psi_2} \\
 &&     \ket{\psi_3} &= \frac{1}{2\sqrt{2}}\left(
         \begin{aligned}
@@ -73,6 +74,14 @@ Voici le développement de la fonction $f$ sur $\hat{x} = 0^2$
         &(\ket{0} + \ket{1})(\ket{0} - \ket{1})\ket{0} - (\ket{0} + \ket{1})(\ket{0} - \ket{1})\ket{1} + \\
         &(\ket{0} - \ket{1})(\ket{0} + \ket{1})\ket{0} - (\ket{0} - \ket{1})(\ket{0} + \ket{1})\ket{1} + \\
         &(\ket{0} - \ket{1})(\ket{0} - \ket{1})\ket{0} - (\ket{0} - \ket{1})(\ket{0} - \ket{1})\ket{1}   \\
+    \end{aligned}
+\right) \\
+&&  \ket{\psi_3} &= \frac{1}{4\sqrt{2}}\left(
+    \begin{aligned}
+        &(\ket{0} + \ket{1})(\ket{0} + \ket{1})(\ket{1} - \ket{0}) + \\
+        &(\ket{0} + \ket{1})(\ket{0} - \ket{1})(\ket{0} - \ket{1}) + \\
+        &(\ket{0} - \ket{1})(\ket{0} + \ket{1})(\ket{0} - \ket{1}) + \\
+        &(\ket{0} - \ket{1})(\ket{0} - \ket{1})(\ket{0} - \ket{1})   \\
     \end{aligned}
 \right) \\
 &&     \ket{\psi_3} &= \frac{1}{4\sqrt{2}}\left(
@@ -101,37 +110,37 @@ Voici le développement de la fonction $f$ sur $\hat{x} = 0^2$
       -&R\ket{11}\ket{0} + R\ket{11}\ket{1} \\
     \end{aligned}
 \right) \\
-&&     \ket{\psi_4} &= \frac{1}{2\sqrt{2}}(\ket{000} - \ket{001} + \ket{010} - \ket{011} + \ket{100} - \ket{101} + \ket{110} - \ket{111}) \\ 
-&&     \ket{\psi_4} &= \frac{1}{2\sqrt{2}}(\ket{0}(\ket{00} - \ket{01} + \ket{10} - \ket{11}) + \ket{1}(\ket{00} - \ket{01} + \ket{10} - \ket{11})) \\
-&&     \ket{\psi_4} &= \frac{1}{2\sqrt{2}}(\ket{0} + \ket{1})(\ket{0}(\ket{0} - \ket{1}) + \ket{1}(\ket{0} - \ket{1})) \\
-&&     \ket{\psi_4} &= (\ket{0} + \ket{1})(\ket{0} + \ket{1})(\ket{0} - \ket{1}) = \ket{+}\ket{+}\ket{-} \\ \\
-&t_5:& \ket{\psi_5} &= H_1H_2\ket{\psi_4} \\
-&&     \ket{\psi_5} &= \frac{1}{2}(H\ket{0} + H\ket{1})(H\ket{0} + H\ket{1})\ket{-} \\
 \end{align*}
 
 \begin{align*}
+&&     \ket{\psi_4} &= \frac{1}{2\sqrt{2}}(\ket{000} - \ket{001} + \ket{010} - \ket{011} + \ket{100} - \ket{101} + \ket{110} - \ket{111}) \\ 
+&&     \ket{\psi_4} &= \frac{1}{2\sqrt{2}}(\ket{0}(\ket{00} - \ket{01} + \ket{10} - \ket{11}) + \ket{1}(\ket{00} - \ket{01} + \ket{10} - \ket{11})) \\
+&&     \ket{\psi_4} &= \frac{1}{2\sqrt{2}}(\ket{0} + \ket{1})(\ket{0}(\ket{0} - \ket{1}) + \ket{1}(\ket{0} - \ket{1})) \\
+&&     \ket{\psi_4} &= \frac{1}{2\sqrt{2}}(\ket{0} + \ket{1})(\ket{0} + \ket{1})(\ket{0} - \ket{1}) = \ket{+}\ket{+}\ket{-} \\ \\
+&t_5:& \ket{\psi_5} &= H_1H_2\ket{\psi_4} \\
+&&     \ket{\psi_5} &= \frac{1}{2}(H\ket{0} + H\ket{1})(H\ket{0} + H\ket{1})\ket{-} \\
 &t_5:& \ket{\psi_5} &= \frac{1}{4}(\ket{0} + \ket{1} + \ket{0} - \ket{1})(\ket{0} + \ket{1} + \ket{0} - \ket{1})\ket{-} \\
 &&     \ket{\psi_5} &= \frac{1}{4}(2\cdot\ket{0})(2\cdot\ket{0})\ket{-} \\
 &&     \ket{\psi_5} &= \frac{4}{4}\ket{0}\ket{0}\ket{-} \\
 &&     \ket{\psi_5} &= \ket{00}\ket{-} \\
 \end{align*}
 
-\subsection*{2)}
+\subsection*{(b)}
 \begin{flushleft}
     Étant donné $\ket{\psi_5} = \ket{00}\ket{-}$, on peut déduire que : \\
 \end{flushleft}
 \begin{align*}
-    prob(x_0 = 0) = 1^2 \ket{0} = 100\% \\
-    prob(x_1 = 0) = 1^2 \ket{0} = 100\% \\
+    prob(x_0 = 0) = prob(\ket{\psi_5} = \ket{000}) + prob(\ket{001}) = (\frac{1}{\sqrt{2}})^2 + (\frac{1}{\sqrt{2}})^2 = 100\% \\
+    prob(x_1 = 0) = prob(\ket{\psi_5} = \ket{000}) + prob(\ket{001}) = (\frac{1}{\sqrt{2}})^2 + (\frac{1}{\sqrt{2}})^2 = 100\%\\
 \end{align*}
 
 \begin{flushleft}
     Donc, la probabilité que $x = x_1x_0$ est : \\
 \end{flushleft}
-    \begin{align*} prob(x_1)\cdot prob(x_0) = 1 * 1 = 100\% \end{align*}
-\\ \\
+    \begin{align*} prob(x_1 = 0)\cdot prob(x_0 = 0) = 1 * 1 = 100\% \end{align*}
+\newpage
 \section*{Question 3}
-\subsection*{1)}
+\subsection*{(a)}
 Voici les états avec les calculs des différent $\ket{\psi_1}$ pour $xz = 11$
 
 \begin{align*}
@@ -141,10 +150,7 @@ Voici les états avec les calculs des différent $\ket{\psi_1}$ pour $xz = 11$
 &&      \ket{\psi_1} &= \ket{11}\frac{1}{\sqrt{2}}(\ket{0} + \ket{1})\ket{0} \\
 &&      \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{1100} + \ket{1110}) \\ \\ 
 &t_2:&  \ket{\psi_2} &= CNOT_{3\rightarrow4}\ket{\psi_1} \\
-\end{align*}
-
-\begin{align*}
-&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}\ket{11}(CNOT_{3\rightarrow4}\ket{00} + CNOT_{3\rightarrow4}\ket{10})
+&&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}\ket{11}(CNOT_{3\rightarrow4}\ket{00} + CNOT_{3\rightarrow4}\ket{10}) \\
 &&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}\ket{11}(\ket{0 \quad 0 \oplus 0} + \ket{1 \quad 1 \oplus 0}) \\
 &&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}\ket{11}(\ket{00} + \ket{11}) \\
 &&      \ket{\psi_2} &= \frac{1}{\sqrt{2}}(\ket{1100} + \ket{1111}) \\ \\
@@ -154,6 +160,9 @@ Voici les états avec les calculs des différent $\ket{\psi_1}$ pour $xz = 11$
 &t_4:&  \ket{\psi_4} &= Z_{1\rightarrow3}\ket{\psi_3} \\
 &&      \ket{\psi_4} &= \frac{1}{\sqrt{2}}(Z_{1\rightarrow3}\ket{1110} + Z_{1\rightarrow3}\ket{1101}) \\
 &&      \ket{\psi_4} &= \frac{1}{\sqrt{2}}(-\ket{1110} + \ket{1101}) = \frac{1}{\sqrt{2}}(\ket{1101} - \ket{1110}) \\ \\
+\end{align*}
+
+\begin{align*}
 &t_5:&  \ket{\psi_5} &= CNOT_{3\rightarrow4}\ket{\psi_4} \\
 &&      \ket{\psi_5} &= \frac{1}{\sqrt{2}}(\ket{11}CNOT_{3\rightarrow4}\ket{01} - \ket{11}CNOT_{3\rightarrow4}\ket{10}) \\
 &&      \ket{\psi_5} &= \frac{1}{\sqrt{2}}(\ket{11}\ket{0 \quad 0 \oplus 1} - \ket{11}\ket{1 \quad 1 \oplus 0}) \\
@@ -164,21 +173,21 @@ Voici les états avec les calculs des différent $\ket{\psi_1}$ pour $xz = 11$
 &&      \ket{\psi_6} &= \frac{1}{2}(\ket{1101} + \ket{1111} - \ket{1101} + \ket{1111}) \\
 &&      \ket{\psi_6} &= \frac{1}{2}(2\cdot\ket{1111}) = \ket{1111}
 \end{align*}
-\\
-\subsection*{2)}
+\hspace*{\fill}
+\subsection*{(b)}
 \begin{flushleft}
     Étant donné $\ket{\psi_6} = \ket{1111}$ et $zx = 11$, on peut déduire que : \\
 \end{flushleft}
 \begin{align*}
-    prob(\hat{z} = 1) = 1^2 \ket{1} = 100\% \\
-    prob(\hat{x} = 1) = 1^2 \ket{1} = 100\% \\
+    prob(\hat{z} = 1) = prob{\ket{1111}} = 1^2 = 100\% \\
+    prob(\hat{x} = 1) = prob{\ket{1111}} = 1^2 = 100\% \\
 \end{align*}
 \begin{flushleft}
     Donc, la probabilité que $\hat{z}\hat{x} = zx$ est : \\
 \end{flushleft}
-    \begin{align*} prob(x_1)\cdot prob(x_0) = 1 * 1 = 100\% \end{align*}
-\\ \\
-\subsection*{3)}
+    \begin{align*} prob(x_1)\cdot prob(x_0) = 1 \cdot 1 = 100\% \end{align*}
+\hspace*{\fill}
+\subsection*{(c)}
 \begin{align*}
 &t_0:&  \ket{\psi_0} &= \ket{zx00} \\ \\
 &t_1:&  \ket{\psi_1} &= H_3\ket{zx00} \\
@@ -189,10 +198,42 @@ Voici les états avec les calculs des différent $\ket{\psi_1}$ pour $xz = 11$
 &&      \ket{\psi_3} &= \frac{1}{\sqrt{2}}(\ket{zx \quad x \oplus 0 \quad 0} + \ket{zx \quad x \oplus 1 \quad 1}) \\
 &&      \ket{\psi_3} &= \frac{1}{\sqrt{2}}(\ket{zxx0} + \ket{zx\overline{x}1}) \\ \\
 &t_4:&  \ket{\psi_4} &= Z_{1\rightarrow3}\ket{\psi_3} \\
-&&      \ket{\psi_4} &= \frac{1}{\sqrt{2}}((-1)^{z \wedge x}\ket{zxx0} + (-1)^{z \wedge x}\ket{zx\overline{x}1}) \\ \\
+&&      \ket{\psi_4} &= \frac{1}{\sqrt{2}}((-1)^{z \wedge x}\ket{zxx0} + (-1)^{z \wedge \overline{x}}\ket{zx\overline{x}1}) \\ \\
 &t_5:&  \ket{\psi_5} &= CNOT_{3 \rightarrow 4}\ket{\psi_4} \\
-&&      \ket{\psi_5} &= \frac{1}{\sqrt{2}}((-1)^{z\wedge x}\ket{zxx})
+&&      \ket{\psi_5} &= \frac{1}{\sqrt{2}}((-1)^{z \wedge x}\ket{zxx \quad x \oplus 0} + (-1)^{z \wedge \overline{x}}\ket{zx\overline{x} \quad \overline{x} \oplus 1}) \\
+&&      \ket{\psi_5} &= \frac{1}{\sqrt{2}}((-1)^{z \wedge x}\ket{zxxx} + (-1)^{z \wedge \overline{x}}\ket{zx\overline{x}x}) \\ \\
+&t_6:&  \ket{\psi_6} &= H_3\ket{\psi_5} \\
+&&      \ket{\psi_6} &= \frac{1}{2}\ket{zx}((-1)^{z \wedge x}(\ket{0x} + (-1)^x \ket{1x}) + (-1)^{z \wedge \overline{x}}(\ket{0x} + (-1)^{\overline{x}} \ket{1x}))
+\end{align*}
+\newpage
+\begin{flushleft}
+    Évaluons la fonction pour toutes les valeurs de $z$ et $x$ :
+\end{flushleft}
+\begin{align*}
+    &\ket{zx} = \ket{00} : \\ \\
+    \ket{\psi_6} &= \frac{1}{2}\ket{00}((-1)^{0 \wedge 0}(\ket{00} + (-1)^0 \ket{10}) + (-1)^{0 \wedge 1}(\ket{00} + (-1)^1(\ket{10}))) \\
+    \ket{\psi_6} &= \frac{1}{2}\ket{00}(\ket{00} + \ket{10} + \ket{00} - \ket{10}) = \ket{0000} \\ \\
+    &\ket{zx} = \ket{01} : \\ \\
+    \ket{\psi_6} &= \frac{1}{2}\ket{01}((-1)^{0 \wedge 1}(\ket{01} + (-1)^1 \ket{11}) + (-1)^{0 \wedge 0}(\ket{01} + (-1)^0(\ket{11}))) \\
+    \ket{\psi_6} &= \frac{1}{2}\ket{01}(\ket{01} - \ket{11} + \ket{01} + \ket{11}) = \ket{0101} \\ \\
+    &\ket{zx} = \ket{10} : \\ \\
+    \ket{\psi_6} &= \frac{1}{2}\ket{10}((-1)^{1 \wedge 0}(\ket{00} + (-1)^0 \ket{10}) + (-1)^{1 \wedge 1}(\ket{00} + (-1)^1(\ket{10}))) \\
+    \ket{\psi_6} &= \frac{1}{2}\ket{10}(\ket{00} + \ket{10} - \ket{00} + \ket{10}) = \ket{1010} \\ \\
+    &\ket{zx} = \ket{11} : \\ \\
+    \ket{\psi_6} &= \frac{1}{2}\ket{11}((-1)^{1 \wedge 1}(\ket{01} + (-1)^1 \ket{11}) + (-1)^{1 \wedge 0}(\ket{01} + (-1)^0(\ket{11}))) \\
+    \ket{\psi_6} &= \frac{1}{2}\ket{11}(-\ket{01} + \ket{11} + \ket{01} + \ket{11}) = \ket{1111} \\ \\
 \end{align*}
 \begin{flushleft}
+    On peut donc voir que le circuit copie dans le $3^e$ et $4^e$ qubit les valeurs de z et x, peut importe leur valeur.
+\end{flushleft}
+\newpage
+\subsection*{(d)}
+\begin{flushleft}
+    Comme vu à l'énoncé précédent, le circuit "copie" les valeur de $\ket{zx}$ en entrée sur le $3^e$ et $4^e$ qubit.
+    La première étape est de partager entre Alice et Bob un état de Bell. La moitié de Alice est celle où l'on effectue
+    l'opération XZ, c'est-à-dire sur le $3^e$ qubit sur le schéma. L'information de $\ket{x}$ est directement sur la valeur du $3^e$
+    qubit (que l'on copie ensuite sur le $4^e$ qubit) et l'information de $\ket{z}$ est présent dans la phase. Effectuer les portes
+    CNOT et H nous permet donc de "retrouver" ces informations à partir du qubit envoyé par Alice.
+    sur $\hat{z}\hat{x}$
 \end{flushleft}
 \end{document}
