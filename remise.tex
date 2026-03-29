@@ -15,14 +15,21 @@
 
 Voici le développement de la fonction $f$ sur $\hat{x} = 0^2$
 \begin{align*}
-&t_0:& \ket{\psi_0} &= \ket{00-} \\ \\
+&t_0:& \ket{\psi_0} &= \ket{00}\ket{-} \\ \\
 &t_1:& \ket{\psi_1} &= H_1H_2\ket{\psi_0} \\
 &&     \ket{\psi_1} &= H_1\ket{0}H_2\ket{0}\ket{-} \\
 &&     \ket{\psi_1} &= \frac{1}{\sqrt{2}}(\ket{0} + \ket{1})\frac{1}{\sqrt{2}}(\ket{0} + \ket{1})\ket{-} \\
 &&     \ket{\psi_1} &= \frac{1}{2\sqrt{2}}(\ket{0} + \ket{1})(\ket{0} + \ket{1})(\ket{0} - \ket{1}) = \frac{1}{2\sqrt{2}}(\ket{00} + \ket{01} + \ket{10} + \ket{11})(\ket{0} - \ket{1}) \\
                   &&&= \frac{1}{2\sqrt{2}}(\ket{000} - \ket{001} + \ket{010} - \ket{011} + \ket{100} - \ket{101} + \ket{110} - \ket{111}) \\ \\
-&t_2:& \ket{\psi_2} &= f_{12\rightarrow3}\ket{\psi_1} \\
-&&     \ket{\psi_2} &= \frac{1}{2\sqrt{2}}(f\ket{001} - f\ket{001} + f\ket{010} - f\ket{011} + f\ket{100} - f\ket{101} + f\ket{110} - f\ket{111}) \\
+&t_2:& \ket{\psi_2} &= f_{12 \rightarrow 3}\ket{\psi_1} \\
+&&     \ket{\psi_2} &= \frac{1}{2\sqrt{2}}\left(
+        \begin{aligned}
+            &f_{12 \rightarrow 3}\ket{000} + f_{12 \rightarrow 3}\ket{001} + \\
+            &f_{12 \rightarrow 3}\ket{010} + f_{12 \rightarrow 3}\ket{011} + \\
+            &f_{12 \rightarrow 3}\ket{100} + f_{12 \rightarrow 3}\ket{101} + \\
+            &f_{12 \rightarrow 3}\ket{110} + f_{12 \rightarrow 3}\ket{111} \\
+        \end{aligned}
+    \right) \\
 &&     \ket{\psi_2} &= \frac{1}{2\sqrt{2}}\left(
         \begin{aligned}
             &\ket{00}\ket{f(00) \oplus 0} - \ket{00}\ket{f(00) \oplus 1} + \\
@@ -97,7 +104,7 @@ Voici le développement de la fonction $f$ sur $\hat{x} = 0^2$
 &&     \ket{\psi_4} &= \frac{1}{2\sqrt{2}}(\ket{000} - \ket{001} + \ket{010} - \ket{011} + \ket{100} - \ket{101} + \ket{110} - \ket{111}) \\ 
 &&     \ket{\psi_4} &= \frac{1}{2\sqrt{2}}(\ket{0}(\ket{00} - \ket{01} + \ket{10} - \ket{11}) + \ket{1}(\ket{00} - \ket{01} + \ket{10} - \ket{11})) \\
 &&     \ket{\psi_4} &= \frac{1}{2\sqrt{2}}(\ket{0} + \ket{1})(\ket{0}(\ket{0} - \ket{1}) + \ket{1}(\ket{0} - \ket{1})) \\
-&&     \ket{\psi_4} &= (\ket{0} + \ket{1})(\ket{0} + \ket{1})(\ket{0} - \ket{1}) = \ket{++-} \\ \\
+&&     \ket{\psi_4} &= (\ket{0} + \ket{1})(\ket{0} + \ket{1})(\ket{0} - \ket{1}) = \ket{+}\ket{+}\ket{-} \\ \\
 &t_5:& \ket{\psi_5} &= H_1H_2\ket{\psi_4} \\
 &&     \ket{\psi_5} &= \frac{1}{2}(H\ket{0} + H\ket{1})(H\ket{0} + H\ket{1})\ket{-} \\
 \end{align*}
